@@ -86,3 +86,63 @@ function draw() {
   if (direction === "UP") snakeY -= box;
   if (direction === "RIGHT") snakeX += box;
   if (direction === "DOWN") snakeY += box;
+
+    // Comer comida
+  if (snakeX === food.x && snakeY === food.y) {
+    score++;
+    eatSound.play();
+    scoreElement.textContent = score;
+    food = randomFood();
+  } else {
+    snake.pop();
+  }
+
+  const newHead = { x: snakeX, y: snakeY };
+
+  // Colisiones
+  if (
+    snakeX < 0 ||
+    snakeY < 0 ||
+    snakeX >= canvasSize ||
+    snakeY >= canvasSize ||
+    collision(newHead, snake)
+  ) {
+    gameOver();
+    return;
+  }
+
+  snake.unshift(newHead);
+}
+
+function collision(head, array) {
+  return array.some(segment => head.x === segment.x && head.y === segment.y);
+}
+
+function gameOver() {
+  clearInterval(gameLoop);
+  gameOverSound.play();
+
+  if (score > highscore) {
+    highscore = score;
+    localStorage.setItem("highscore", highscore);
+  }
+
+  highscoreElement.textContent = highscore;
+
+  ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
+  ctx.fillRect(0, 0, canvasSize, canvasSize);
+
+  ctx.fillStyle = "#00ff88";
+  ctx.font = "40px Poppins";
+  ctx.fillText("💀 GAME OVER 💀", 80, 220);
+
+  ctx.font = "24px Poppins";
+  ctx.fillText(`Puntaje: ${score}`, 190, 270);
+  ctx.fillText(`Récord: ${highscore}`, 185, 310);
+}
+const menuBtn = document.getElementById("menuBtn");
+menuBtn.addEventListener("click", () => {
+  clearInterval(gameLoop);
+  gameContainer.classList.add("hidden");
+  menu.classList.remove("hidden");
+});
