@@ -37,3 +37,40 @@ h1 {
 .hidden {
   display: none;
 }
+.controls {
+  margin-bottom: 15px;
+}
+
+select {
+  background-color: #111;
+  border: 2px solid #00ff88;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  background: linear-gradient(90deg, #00ff88, #00cc66);
+  border: none;
+  color: #000;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ff88;
+}
+
+#menuBtn {
+  background: linear-gradient(90deg, #ff0044, #ff3366);
+}
+
+#menuBtn:hover {
+  box-shadow: 0 0 15px #ff0044;
+}
