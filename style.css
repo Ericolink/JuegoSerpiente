@@ -16,3 +16,24 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+h1 {
+  font-size: 2.5em;
+  color: #00ff88;
+  text-shadow: 0 0 20px #00ff88, 0 0 40px #008844;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+#menu {
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.hidden {
+  display: none;
+}
