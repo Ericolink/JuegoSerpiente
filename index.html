@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Evolution</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="menu">
+    <h1>SNAKE EVOLUTION</h1>
+    <p class="subtitle">¡Come, crece y domina el tablero!</p>
+
+    <div class="controls">
+      <label for="difficulty">Dificultad:</label>
+      <select id="difficulty">
+        <option value="150">Fácil</option>
+        <option value="100" selected>Normal</option>
+        <option value="70">Difícil</option>
+      </select>
+    </div>
+
+    <button id="startBtn">Iniciar Juego</button>
+  </div>
+
+  <div id="game-container" class="hidden">
+    <canvas id="gameCanvas" width="500" height="500"></canvas>
+
+    <div id="hud">
+      <div class="scoreboard">
+        <p><strong>Puntaje:</strong> <span id="score">0</span></p>
+        <p><strong>Récord:</strong> <span id="highscore">0</span></p>
+      </div>
+      <button id="menuBtn">Menú</button>
+      <button id="restartBtn">Reiniciar</button>
+    </div>
+  </div>
+
+  <!-- Sonidos -->
+  <audio id="eatSound" src="https://actions.google.com/sounds/v1/cartoon/pop.ogg"></audio>
+  <audio id="gameOverSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
